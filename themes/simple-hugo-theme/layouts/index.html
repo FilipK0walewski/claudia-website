@@ -1,0 +1,76 @@
+{{ partial "header.html" . }}
+
+<section>
+    <div id="home-section-0" class="container">
+        <p>{{ .Params.first_section.title }}</p>
+        <h1>{{ .Params.name }} <span>{{.Params.surname}}</span></h1>
+        {{$text0 := .Params.first_section.text }}
+        <div class="half-div">
+            <p>
+                {{ cond (eq (len $text0) 0)
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, nihil quae quod ad eligendi architecto molestias praesentium inventore quia minus deleniti adipisci fugit, earum unde doloribus asperiores corruptieius possimus."
+                $text0
+                }}
+            </p>
+        </div>
+        <button id="home-section-0-btn">{{ .Params.first_section.button }}</button>
+    </div>
+</section>
+<section class="home-section-1">
+    <div class="screen-bg"></div>
+    <div class="home-section-1-div">
+        <div class="container h-full flex items-center">
+            <div>
+                <h1 class="color-0">{{ .Params.second_section.title }}</h1>
+                <p class="color-2 text-5xl">{{ .Params.name}} <span class="bold">{{ .Params.surname }}</span></p>
+                <div id="home-section-0-horizontal-line"></div>
+                {{$text1 := .Params.second_section.text }}
+                <div class="half-div">
+                    <p class="color-0">
+                        {{ cond (eq (len $text1) 0)
+                            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, nihil quae quod ad eligendi architecto molestias praesentium inventore quia minus deleniti adipisci fugit, earum unde doloribus asperiores corruptieius possimus."
+                            $text1
+                        }}
+                    </p>
+                </div>
+                <button id="home-section-1-btn">{{ .Params.second_section.button }}</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bg-3">
+    <div class="container w-full h-full flex items-center justify-center">
+        <button class="card-btn" id="card-btn-left">{{ partial "arrow-left.html" . }}</button>
+        <ul id="cards-list" class="flex space-x-1">
+            {{ range $index, $element :=.Params.third_section.cards }}
+                <li id="card-{{$index}}" class="home-card">
+                    <p>{{ $element.line_0 }}</p>
+                    <p class="text-xl">{{ $element.line_1 }}</p>
+                    <p>{{ $element.line_2 }}</p>
+                </li>
+            {{ end }}
+        </ul>
+        <button class="card-btn" id="card-btn-right">{{ partial "arrow-right.html" . }}</button>
+    </div>
+</section>
+<section class="bg-1 flex justify-center items-center">
+    <form id="home-form" class="flex flex-col items-center space-y-1 bg-0">
+        <h4>{{ .Params.fourth_section.text }}</h4>
+        {{ partial "socials.html" . }}
+        <div class="h-form-div">
+            <input id="h-input-0" class="h-input" type="text" placeholder="d">
+            <label id="h-label-0" class="h-label" for="h-input-0">name</label>
+        </div>
+        <div class="h-form-div">
+            <input id="h-input-1" class="h-input" type="text" placeholder="d">
+            <label id="h-label-1" class="h-label" for="h-input-1">email</label>
+        </div>
+        <div class="h-form-div">
+            <input id="h-input-2" class="h-input" type="text" placeholder="d">
+            <label id="h-label-2" class="h-label" for="h-input-2">subject</label>
+        </div>
+        <button id="h-form-button" class="bold" type="submit">send</button>
+    </form>
+</section>
+
+{{ partial "footer.html" . }}

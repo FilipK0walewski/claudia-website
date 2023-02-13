@@ -1,0 +1,15 @@
+{{ partial "header.html" . }}
+
+<h1>{{ .Title }}</h1>
+
+{{ .Content }}
+
+{{ $image := resources.Get (printf "images/%s" .Params.image) }}
+{{ with $image }}
+<img id="about-image" src="{{ $image.RelPermalink }}" alt="">
+{{ end }}
+
+<p>code url: <a href={{.Param "site_url" }}>{{.Param "site_url"}}</a></p>
+<p>site url: <a href={{.Param "code_url" }}>{{.Param "code_url"}}</a></p>
+
+{{ partial "footer.html" . }}

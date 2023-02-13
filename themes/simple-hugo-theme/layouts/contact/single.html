@@ -1,0 +1,25 @@
+{{ partial "header.html" . }}
+
+<h1>{{ .Title }}</h1>
+
+{{ .Content }}
+
+<form id="contact-form" method="POST" action="/">
+    <div id="contact-div-top">
+        <div class="contact-div">
+            <input id="contact-name" class="contact-input" name="name" type="text" placeholder="d" required>
+            <label class="contact-label" for="contact-name">Your name</label>
+        </div>
+        <div class="contact-div">
+            <input id="contact-subject" class="contact-input" name="subject" type="text" placeholder="d" required>
+            <label class="contact-label" for="contact-subject">Subject</label>
+        </div>
+    </div>
+    <div class="contact-div">
+        <textarea id="contact-message" class="contact-input" name="message" placeholder="d" required></textarea>
+        <label class="contact-label contact-message-label" for="contact-message">Message</label>
+    </div>
+    <button id="contact-submit-button" type="submit">send</button>
+</form>
+
+{{ partial "footer.html" . }}
