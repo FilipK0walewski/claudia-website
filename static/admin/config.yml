@@ -1,11 +1,13 @@
 backend:
   name: git-gateway
   branch: main
-media_folder: "static/images"
+media_folder: "assets/images"
 public_folder: "images"
 collections:
   - name: "pages"
     label: "pages"
+    fmedia_folder: "/assets/images"
+    public_folder: "images"
     files:
       - file: "content/_index.md"
         label: "Home page"
@@ -28,13 +30,13 @@ collections:
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Text", name: "text", widget: "string", required: false}
               - {label: "Button", name: "button", widget: "string"}
-              - {label: "Background Image", name: "background_image", widget: "image"}
+              - {label: "Background Image", name: "background_image", widget: "image", required: false}
           - label: "Third Section" 
             name: "third_section"
             widget: "object"
             fields: 
               - label: "Cards"
-                name: "title"
+                name: "cards"
                 widget: "list"
                 allow_add: true
                 fields:
